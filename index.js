@@ -44,11 +44,11 @@ app.use(express.json());
 
 // Rutas
 const authRoutes = require('./routes/auth');
-app.use('/auth', authRoutes);
+app.use('auth', authRoutes);
 
 // Seed de usuarios de prueba
 const seedRoutes = require('./routes/seed');
-app.use('/seed', seedRoutes);
+app.use('seed', seedRoutes);
 
 // Endpoint de ejemplo
 app.get('/', (req, res) => {
