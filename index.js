@@ -38,17 +38,22 @@ const options = {
 };
 const swaggerSpec = swaggerJSDoc(options);
 
+
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use(express.json());
+
 
 // Rutas
 const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
 
-// Seed de usuarios de prueba
 const seedRoutes = require('./routes/seed');
 app.use('/seed', seedRoutes);
+
+// CRUD Aplicaciones
+const aplicacionesRoutes = require('./routes/aplicaciones');
+app.use('/aplicaciones', aplicacionesRoutes);
 
 // Endpoint de ejemplo
 app.get('/', (req, res) => {
